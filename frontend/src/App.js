@@ -8,11 +8,11 @@ import Switch from "react-switch"
 import {Weapons} from "./Weapons";
 
 const PixelPrice = new BN("10000000000000000000000");
-const IsMainnet = true;
+const IsMainnet = window.location.hostname === "berryclub.io";
 const TestNearConfig = {
   networkId: 'testnet',
   nodeUrl: 'https://rpc.testnet.near.org',
-  contractName: 'dev-1604708520705-2360364',
+  contractName: 'berryclub.testnet',
   walletUrl: 'https://wallet.testnet.near.org',
 };
 const MainNearConfig = {
@@ -25,7 +25,7 @@ const NearConfig = IsMainnet ? MainNearConfig : TestNearConfig;
 
 const Avocado = <span role="img" aria-label="avocado" className="berry">🥑</span>;
 const Banana = <span role="img" aria-label="banana" className="berry">🍌</span>;
-const Cucumber = <span role="img" aria-label="cucumber" className="berry">🥒</span>;
+// const Cucumber = <span role="img" aria-label="cucumber" className="berry">🥒</span>;
 
 const Berry = {
   Avocado: 'Avocado',
@@ -694,7 +694,7 @@ class App extends React.Component {
   }
 
   async requestSignIn() {
-    const appTitle = 'Berry Club';
+    const appTitle = '[TEST] Berry Club';
     await this._walletConnection.requestSignIn(
       NearConfig.contractName,
       appTitle
@@ -868,7 +868,8 @@ class App extends React.Component {
     return (
       <div>
         <div class="header">
-          <h2>{Avocado} Berry Club {Banana}</h2>{' '}
+          <h2>{Avocado} [TEST] Berry Club {Banana}</h2>{' '}
+          {/*
           <a
             className="btn btn-outline-none"
             href="https://farm.berryclub.io">Berry Farm {Cucumber}
@@ -877,6 +878,7 @@ class App extends React.Component {
             className="btn btn-outline-none"
             href="https://bananaswap.berryclub.io">[BETA] Banana Swap {Banana}
           </a>
+          */}
           {content}
         </div>
         <div className="container">
