@@ -21,7 +21,15 @@ pub use crate::account::*;
 pub mod board;
 pub use crate::board::*;
 
+mod fungible_token_core;
+mod fungible_token_metadata;
+mod internal;
 pub mod token;
+
+pub use crate::fungible_token_core::*;
+pub use crate::fungible_token_metadata::*;
+use crate::internal::*;
+
 pub use crate::token::*;
 
 #[global_allocator]
